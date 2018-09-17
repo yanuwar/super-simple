@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.yanuwar.entertaiment">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".ConverterSuhu" />
+        <activity android:name=".Terbilang" />
+        <activity android:name=".TIcTacToe" />
+        <activity android:name=".Currency" />
+        <activity android:name=".Hangman" />
+        <activity android:name=".BeratBadanIdeal" />
+        <activity android:name=".WheelOfName" />
+        <activity android:name=".JadwalSholat" />
+        <activity android:name=".TodoApps" />
+        <activity android:name=".WhereTheF" />
+        <activity android:name=".Calc" />
+        <activity android:name=".Kasier" />
+        <activity android:name=".Pingsut" />
+        <activity android:name=".TukarUang" />
+        <activity android:name=".WTFSpecial" />
+        <activity android:name=".Scrabble">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".DetailScrabble" />
+        <activity android:name=".StockCard"></activity>
+    </application>
+
+</manifest>

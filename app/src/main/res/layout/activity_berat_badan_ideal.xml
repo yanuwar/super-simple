@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BeratBadanIdeal">
+
+    <RadioGroup
+        android:id="@+id/rg_kelamin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/rb_laki"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Laki - laki" />
+        <RadioButton
+            android:id="@+id/rb_cewek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Perempuan"/>
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/et_berat"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
+        android:inputType="number"
+        android:hint="Tinggi Badan"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/rg_kelamin"
+        app:layout_constraintStart_toEndOf="@+id/rg_kelamin"
+        app:layout_constraintTop_toTopOf="@+id/rg_kelamin" />
+
+    <Button
+        android:id="@+id/btn_processing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:text="="
+        app:layout_constraintBottom_toBottomOf="@+id/et_berat"
+        app:layout_constraintStart_toEndOf="@+id/et_berat"
+        app:layout_constraintTop_toTopOf="@+id/et_berat" />
+
+    <TextView
+        android:id="@+id/tv_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_berat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_processing"
+        app:layout_constraintTop_toTopOf="@+id/et_berat" />
+
+</android.support.constraint.ConstraintLayout>

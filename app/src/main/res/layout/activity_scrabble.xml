@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Scrabble">
+
+    <!--<TextView-->
+        <!--android:id="@+id/tv_deck"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textSize="20sp"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent" />-->
+
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--righ="1"/>-->
+
+    <ScrollView
+        android:id="@+id/sc_view"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:orientation="vertical">
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/line_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Done"
+        app:layout_constraintTop_toBottomOf="@+id/sc_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_stock_card"/>
+
+    <Button
+        android:id="@+id/btn_stock_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="show stock card"
+        app:layout_constraintTop_toBottomOf="@id/sc_view"
+        app:layout_constraintStart_toEndOf="@+id/btn_done"
+        app:layout_constraintEnd_toStartOf="@+id/btn_skip"/>
+
+    <Button
+        android:id="@+id/btn_skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Skip"
+        app:layout_constraintTop_toBottomOf="@+id/sc_view"
+        app:layout_constraintStart_toEndOf="@+id/btn_stock_card"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_poin_p1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Poin Player 1: "
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/btn_done"
+        app:layout_constraintTop_toBottomOf="@+id/btn_done" />
+
+    <TextView
+        android:id="@+id/tv_val_p1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/tv_poin_p1"
+        app:layout_constraintTop_toTopOf="@+id/tv_poin_p1"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_poin_p1"/>
+
+    <TextView
+        android:id="@+id/tv_poin_p2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Poin Player 2: "
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_poin_p1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_poin_p1" />
+
+    <TextView
+        android:id="@+id/tv_val_p2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/tv_poin_p2"
+        app:layout_constraintTop_toTopOf="@+id/tv_poin_p2"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_poin_p2"/>
+
+</android.support.constraint.ConstraintLayout>
