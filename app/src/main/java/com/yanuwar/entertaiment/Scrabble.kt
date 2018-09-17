@@ -13,7 +13,11 @@ import kotlinx.android.synthetic.main.activity_scrabble.*
 import java.util.*
 import android.content.DialogInterface
 import android.text.Editable
+import android.text.InputType
 import android.widget.EditText
+import android.text.InputFilter
+
+
 
 
 
@@ -142,25 +146,25 @@ class Scrabble : AppCompatActivity() {
                         if (orientation == 1) {
                             tempAnsPlayer1.forEachIndexed { index, coor ->
                                 if (!kata.contains(getKataCoor(tempAnsPlayer1[index],1))) {
-                                    poin += getValue(getKataCoor(tempAnsPlayer1[index],1), tempCoor); kata.add(getKataCoor(tempAnsPlayer1[index],1))
+                                    poin += getValue(getKataCoorTag(tempAnsPlayer1[index],1), tempCoor); kata.add(getKataCoor(tempAnsPlayer1[index],1))
                                 }
                             }
                             tempAnsPlayer1.forEachIndexed { index, coor ->
                                 if (getKataCoor(tempAnsPlayer1[index], 2).length > 1) {
-                                    poin += getValue(getKataCoor(tempAnsPlayer1[index],2), tempCoor)
+                                    poin += getValue(getKataCoorTag(tempAnsPlayer1[index],2), tempCoor)
                                     kata.add(getKataCoor(tempAnsPlayer1[index], 2))
                                 }
                             }
                         } else if (orientation == 2) {
                             tempAnsPlayer1.forEachIndexed { index, coor ->
                                 if (!kata.contains(getKataCoor(tempAnsPlayer1[index], 2))) {
-                                    poin += getValue(getKataCoor(tempAnsPlayer1[index],2), tempCoor);
+                                    poin += getValue(getKataCoorTag(tempAnsPlayer1[index],2), tempCoor);
                                     kata.add(getKataCoor(tempAnsPlayer1[index], 2))
                                 }
                             }
                             tempAnsPlayer1.forEachIndexed { index, coor ->
                                 if (getKataCoor(tempAnsPlayer1[index], 1).length > 1) {
-                                    poin += getValue(getKataCoor(tempAnsPlayer1[index],1), tempCoor);
+                                    poin += getValue(getKataCoorTag(tempAnsPlayer1[index],1), tempCoor);
                                     kata.add(getKataCoor(tempAnsPlayer1[index], 1))
                                 }
                             }
@@ -173,26 +177,26 @@ class Scrabble : AppCompatActivity() {
                         if (orientation == 1) {
                             tempAnsPlayer2.forEachIndexed { index, coor ->
                                 if (!kata.contains(getKataCoor(tempAnsPlayer2[index], 1))) {
-                                    poin += getValue(getKataCoor(tempAnsPlayer2[index],1), tempCoor)
+                                    poin += getValue(getKataCoorTag(tempAnsPlayer2[index],1), tempCoor)
                                     kata.add(getKataCoor(tempAnsPlayer2[index], 1))
                                 }
                             }
                             tempAnsPlayer2.forEachIndexed { index, coor ->
                                 if (getKataCoor(tempAnsPlayer2[index], 2).length > 1) {
-                                    poin += getValue(getKataCoor(tempAnsPlayer2[index],2), tempCoor)
+                                    poin += getValue(getKataCoorTag(tempAnsPlayer2[index],2), tempCoor)
                                     kata.add(getKataCoor(tempAnsPlayer2[index], 2))
                                 }
                             }
                         } else if (orientation == 2) {
                             tempAnsPlayer2.forEachIndexed { index, coor ->
                                 if (!kata.contains(getKataCoor(tempAnsPlayer2[index], 2))) {
-                                    poin += getValue(getKataCoor(tempAnsPlayer2[index],2), tempCoor)
+                                    poin += getValue(getKataCoorTag(tempAnsPlayer2[index],2), tempCoor)
                                     kata.add(getKataCoor(tempAnsPlayer2[index], 2))
                                 }
                             }
                             tempAnsPlayer2.forEachIndexed { index, coor ->
                                 if (getKataCoor(tempAnsPlayer2[index], 1).length > 1) {
-                                    poin += getValue(getKataCoor(tempAnsPlayer2[index],1), tempCoor)
+                                    poin += getValue(getKataCoorTag(tempAnsPlayer2[index],1), tempCoor)
                                     kata.add(getKataCoor(tempAnsPlayer2[index], 1))
                                 }
                             }
@@ -204,26 +208,26 @@ class Scrabble : AppCompatActivity() {
                         if (playerTurn == 1) {
                             tempAnsPlayer1.forEachIndexed { index, coor ->
                                 if (getKataCoor(tempAnsPlayer1[index], 1).length > 1) {
-                                    poin += getValue(getKataCoor(tempAnsPlayer1[index],1), tempCoor)
+                                    poin += getValue(getKataCoorTag(tempAnsPlayer1[index],1), tempCoor)
                                     kata.add(getKataCoor(tempAnsPlayer1[index], 1))
                                 }
                             }
                             tempAnsPlayer1.forEachIndexed { index, coor ->
                                 if (getKataCoor(tempAnsPlayer1[index], 2).length > 1) {
-                                    poin += getValue(getKataCoor(tempAnsPlayer1[index],2), tempCoor)
+                                    poin += getValue(getKataCoorTag(tempAnsPlayer1[index],2), tempCoor)
                                     kata.add(getKataCoor(tempAnsPlayer1[index], 2))
                                 }
                             }
                         } else if (playerTurn == 2){
                             tempAnsPlayer2.forEachIndexed { index, coor ->
                                 if (getKataCoor(tempAnsPlayer2[index], 2).length > 1) {
-                                    poin += getValue(getKataCoor(tempAnsPlayer2[index],2), tempCoor)
+                                    poin += getValue(getKataCoorTag(tempAnsPlayer2[index],2), tempCoor)
                                     kata.add(getKataCoor(tempAnsPlayer2[index], 2))
                                 }
                             }
                             tempAnsPlayer2.forEachIndexed { index, coor ->
                                 if (getKataCoor(tempAnsPlayer2[index], 1).length > 1) {
-                                    poin += getValue(getKataCoor(tempAnsPlayer2[index],1), tempCoor)
+                                    poin += getValue(getKataCoorTag(tempAnsPlayer2[index],1), tempCoor)
                                     kata.add(getKataCoor(tempAnsPlayer2[index], 1))
                                 }
                             }
@@ -286,22 +290,13 @@ class Scrabble : AppCompatActivity() {
                         tempAnsPlayer1.removeAt(positionAns)
                         arrLineButton[data.extras?.getInt("indexLine")
                                 ?: 0]!![data.extras?.getInt("indexBtn") ?: 0].text = ""
+                        arrLineButton[data.extras?.getInt("indexLine")
+                                ?: 0]!![data.extras?.getInt("indexBtn") ?: 0].tag = ""
                     }
                 }
-//                data.extras?.getString("choosingHuruf") == "-" -> {
-//                    showAlertBlank(data.extras?.getInt("indexBtn")?:0, data.extras?.getInt("indexLine")?:0)
-//                    var position = 0
-//                    tempCardOnHandPlayer1.mapIndexed { index, letter ->
-//                        if (data.extras?.getString("choosingHuruf") == letter.huruf
-//                                && letter.isShow == false) {
-//                            position = index
-//                        }
-//                    }
-//                    tempCardOnHandPlayer1[position] =
-//                            Letter(tempCardOnHandPlayer1[position].huruf,
-//                                    tempCardOnHandPlayer1[position].poin, tempCardOnHandPlayer1[position].jumlah, true)
-//                    tempAnsPlayer1.add(Coor(data.extras?.getInt("indexBtn")?:0, data.extras?.getInt("indexLine")?:0))
-//                }
+                data.extras?.getString("choosingHuruf") == "-" -> {
+                    showAlertBlank(data)
+                }
                 arrLineButton[data.extras?.getInt("indexLine")?:0]!![data.extras?.getInt("indexBtn")?:0].text.isNullOrEmpty() -> {
                     var position = 0
                     tempCardOnHandPlayer1.mapIndexed { index, letter ->
@@ -314,12 +309,13 @@ class Scrabble : AppCompatActivity() {
                             Letter(tempCardOnHandPlayer1[position].huruf,
                                     tempCardOnHandPlayer1[position].poin, tempCardOnHandPlayer1[position].jumlah, true)
                     arrLineButton[data.extras?.getInt("indexLine")?:0]!![data.extras?.getInt("indexBtn")?:0].text = data.extras?.getString("choosingHuruf")
+                    arrLineButton[data.extras?.getInt("indexLine")?:0]!![data.extras?.getInt("indexBtn")?:0].tag = data.extras?.getString("choosingHuruf")
                     tempAnsPlayer1.add(Coor(data.extras?.getInt("indexBtn")?:0, data.extras?.getInt("indexLine")?:0))
                 }
                 else -> {
                     var position = 0
                     tempCardOnHandPlayer1.mapIndexed { index, letter ->
-                        if (arrLineButton[data.extras?.getInt("indexLine")?:0]!![data.extras?.getInt("indexBtn")?:0].text == letter.huruf
+                        if (arrLineButton[data.extras?.getInt("indexLine")?:0]!![data.extras?.getInt("indexBtn")?:0].tag == letter.huruf
                                 && letter.isShow == true) {
                             position = index
                         }
@@ -339,6 +335,7 @@ class Scrabble : AppCompatActivity() {
                             Letter(tempCardOnHandPlayer1[position2].huruf,
                                     tempCardOnHandPlayer1[position2].poin, tempCardOnHandPlayer1[position2].jumlah, true)
                     arrLineButton[data.extras?.getInt("indexLine")?:0]!![data.extras?.getInt("indexBtn")?:0].text = data.extras?.getString("choosingHuruf")
+                    arrLineButton[data.extras?.getInt("indexLine")?:0]!![data.extras?.getInt("indexBtn")?:0].tag = data.extras?.getString("choosingHuruf")
                 }
             }
         } else if (data?.extras?.getInt("turn") == 2) {
@@ -368,22 +365,13 @@ class Scrabble : AppCompatActivity() {
                         tempAnsPlayer2.removeAt(positionAns)
                         arrLineButton[data.extras?.getInt("indexLine")
                                 ?: 0]!![data.extras?.getInt("indexBtn") ?: 0].text = ""
+                        arrLineButton[data.extras?.getInt("indexLine")
+                                ?: 0]!![data.extras?.getInt("indexBtn") ?: 0].tag = ""
                     }
                 }
-//                data.extras?.getString("choosingHuruf") == "-" -> {
-//                    showAlertBlank(data.extras?.getInt("indexBtn")?:0, data.extras?.getInt("indexLine")?:0)
-//                    var position = 0
-//                    tempCardOnHandPlayer2.mapIndexed { index, letter ->
-//                        if (data.extras?.getString("choosingHuruf") == letter.huruf
-//                                && letter.isShow == false) {
-//                            position = index
-//                        }
-//                    }
-//                    tempCardOnHandPlayer2[position] =
-//                            Letter(tempCardOnHandPlayer2[position].huruf,
-//                                    tempCardOnHandPlayer2[position].poin, tempCardOnHandPlayer2[position].jumlah, true)
-//                    tempAnsPlayer2.add(Coor(data.extras?.getInt("indexBtn")?:0, data.extras?.getInt("indexLine")?:0))
-//                }
+                data.extras?.getString("choosingHuruf") == "-" -> {
+                    showAlertBlank(data)
+                }
                 arrLineButton[data.extras?.getInt("indexLine")?:0]!![data.extras?.getInt("indexBtn")?:0].text.isNullOrEmpty() -> {
                     var position = 0
                     tempCardOnHandPlayer2.mapIndexed { index, letter ->
@@ -396,12 +384,13 @@ class Scrabble : AppCompatActivity() {
                             Letter(tempCardOnHandPlayer2[position].huruf,
                                     tempCardOnHandPlayer2[position].poin, tempCardOnHandPlayer2[position].jumlah, true)
                     arrLineButton[data.extras?.getInt("indexLine")?:0]!![data.extras?.getInt("indexBtn")?:0].text = data.extras?.getString("choosingHuruf")
+                    arrLineButton[data.extras?.getInt("indexLine")?:0]!![data.extras?.getInt("indexBtn")?:0].tag = data.extras?.getString("choosingHuruf")
                     tempAnsPlayer2.add(Coor(data.extras?.getInt("indexBtn")?:0, data.extras?.getInt("indexLine")?:0))
                 }
                 else -> {
                     var position = 0
                     tempCardOnHandPlayer2.mapIndexed { index, letter ->
-                        if (arrLineButton[data.extras?.getInt("indexLine")?:0]!![data.extras?.getInt("indexBtn")?:0].text == letter.huruf
+                        if (arrLineButton[data.extras?.getInt("indexLine")?:0]!![data.extras?.getInt("indexBtn")?:0].tag == letter.huruf
                                 && letter.isShow == true) {
                             position = index
                         }
@@ -421,6 +410,7 @@ class Scrabble : AppCompatActivity() {
                             Letter(tempCardOnHandPlayer2[position2].huruf,
                                     tempCardOnHandPlayer2[position2].poin, tempCardOnHandPlayer2[position2].jumlah, true)
                     arrLineButton[data.extras?.getInt("indexLine")?:0]!![data.extras?.getInt("indexBtn")?:0].text = data.extras?.getString("choosingHuruf")
+                    arrLineButton[data.extras?.getInt("indexLine")?:0]!![data.extras?.getInt("indexBtn")?:0].tag = data.extras?.getString("choosingHuruf")
                 }
             }
         }
@@ -694,6 +684,67 @@ class Scrabble : AppCompatActivity() {
         return result
     }
 
+    private fun getKataCoorTag(coor: Coor, orientation: Int): String {
+        var result = ""
+        var terkecil = 15
+        var terbesar = 0
+
+        if (orientation == 1) {
+            var i = coor.y
+            while (i >= 0) {
+                if (arrLineButton[i]!![coor.x].text.isNotEmpty()) {
+                    terkecil = i
+                } else {
+                    break
+                }
+                i--
+            }
+            i = coor.y
+            while (i < 15) {
+                if (arrLineButton[i]!![coor.x].text.isNotEmpty()) {
+                    terbesar = i
+                } else {
+                    break
+                }
+                i++
+            }
+
+            i = terkecil
+            while (i <= terbesar) {
+                result += arrLineButton[i]!![coor.x].text
+                tempCoor.add(Coor(coor.x, i))
+                i++
+            }
+        } else if (orientation == 2) {
+            var i = coor.x
+            while (i >= 0) {
+                if (arrLineButton[coor.y]!![i].text.isNotEmpty()) {
+                    terkecil = i
+                } else {
+                    break
+                }
+                i--
+            }
+            i = coor.x
+            while (i < 15) {
+                if (arrLineButton[coor.y]!![i].text.isNotEmpty()) {
+                    terbesar = i
+                } else {
+                    break
+                }
+                i++
+            }
+
+            i = terkecil
+            while (i <= terbesar) {
+                result += arrLineButton[coor.y]!![i].tag
+                i++
+            }
+        }
+
+        return result
+    }
+
     private fun getValue(kata: String, listCoorAns: MutableList<Coor>): Int {
         var value = 0
 
@@ -719,16 +770,32 @@ class Scrabble : AppCompatActivity() {
         return listCard[indexKata]
     }
 
-    private fun showAlertBlank(x: Int, y: Int) {
+    private fun showAlertBlank(data: Intent?) {
         val edittext = EditText(this)
+        val lp = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+        lp.setMargins(18, 18, 18, 18)
+        edittext.layoutParams = lp
+        edittext.maxLines = 1
+        edittext.inputType = InputType.TYPE_CLASS_TEXT
         val builder = AlertDialog.Builder(this)
         builder.setMessage("Pilih Huruf")
-
         builder.setView(edittext)
-
         builder.setPositiveButton("Pilih", { dialog, whichButton ->
             val value = edittext.text.toString()
-            arrLineButton[y]!![x].text = "-$value"
+
+            var position = 0
+            tempCardOnHandPlayer1.mapIndexed { index, letter ->
+                if (data?.extras?.getString("choosingHuruf") == letter.huruf
+                        && letter.isShow == false) {
+                    position = index
+                }
+            }
+            tempCardOnHandPlayer1[position] =
+                    Letter(tempCardOnHandPlayer1[position].huruf,
+                            tempCardOnHandPlayer1[position].poin, tempCardOnHandPlayer1[position].jumlah, true)
+            arrLineButton[data?.extras?.getInt("indexLine")?:0]!![data?.extras?.getInt("indexBtn")?:0].text = value
+            arrLineButton[data?.extras?.getInt("indexLine")?:0]!![data?.extras?.getInt("indexBtn")?:0].tag = "-"
+            tempAnsPlayer1.add(Coor(data?.extras?.getInt("indexBtn")?:0, data?.extras?.getInt("indexLine")?:0))
             dialog.dismiss()
         })
 
