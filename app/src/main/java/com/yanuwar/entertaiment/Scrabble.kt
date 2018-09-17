@@ -11,15 +11,8 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_scrabble.*
 import java.util.*
-import android.content.DialogInterface
-import android.text.Editable
 import android.text.InputType
 import android.widget.EditText
-import android.text.InputFilter
-
-
-
-
 
 class Scrabble : AppCompatActivity() {
 
