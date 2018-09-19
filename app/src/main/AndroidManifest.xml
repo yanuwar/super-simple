@@ -30,12 +30,13 @@
         <activity android:name=".Scrabble" />
         <activity android:name=".DetailScrabble" />
         <activity android:name=".StockCard" />
-        <activity android:name=".SnakeNLadder">
-        </activity>
+        <activity android:name=".SnakeNLadder"></activity>
         <activity android:name=".PreSnakeNLadder" />
         <activity android:name=".AddSnake" />
         <activity android:name=".BattleShip" />
         <activity android:name=".BattleShipActivity">
+        </activity>
+        <activity android:name=".KanbanBotActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
