@@ -27,15 +27,18 @@
         <activity android:name=".Pingsut" />
         <activity android:name=".TukarUang" />
         <activity android:name=".WTFSpecial" />
-        <activity android:name=".Scrabble">
+        <activity android:name=".Scrabble"></activity>
+        <activity android:name=".DetailScrabble" />
+        <activity android:name=".StockCard" />
+        <activity android:name=".SnakeNLadder">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DetailScrabble" />
-        <activity android:name=".StockCard"></activity>
+        <activity android:name=".PreSnakeNLadder"></activity>
+        <activity android:name=".AddSnake"></activity>
     </application>
 
 </manifest>

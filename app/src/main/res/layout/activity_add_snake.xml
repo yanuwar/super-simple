@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddSnake"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_keterangan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/et_from"
+        android:inputType="number"
+        android:layout_marginTop="10dp"
+        android:maxLines="1"
+        android:imeOptions="actionDone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Dari Kolom"/>
+
+    <EditText
+        android:id="@+id/et_to"
+        android:inputType="number"
+        android:maxLines="1"
+        android:imeOptions="actionDone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ke Kolom"/>
+
+    <Button
+        android:id="@+id/btn_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Tambahkan"/>
+
+</LinearLayout>
