@@ -35,13 +35,13 @@
         <activity android:name=".AddSnake" />
         <activity android:name=".BattleShip" />
         <activity android:name=".BattleShipActivity">
-        </activity>
-        <activity android:name=".KanbanBotActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".KanbanBotActivity">
         </activity>
     </application>
 
