@@ -1,5 +1,6 @@
 package com.yanuwar.entertaiment
 
+import android.app.ProgressDialog
 import android.content.Context
 import android.os.AsyncTask
 import android.support.v7.app.AppCompatActivity
@@ -7,6 +8,8 @@ import android.os.Bundle
 import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log.e
+import android.view.KeyEvent
+import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_weather.*
 import org.json.JSONException
@@ -14,6 +17,10 @@ import org.json.JSONObject
 import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
+import android.view.inputmethod.EditorInfo
+import android.widget.TextView.OnEditorActionListener
+
+
 
 class WeatherActivity : AppCompatActivity() {
 
@@ -23,12 +30,15 @@ class WeatherActivity : AppCompatActivity() {
     private lateinit var adapter: WeatherAdapter
     private lateinit var adapter2: WeatherAdapter
     private lateinit var adapter3: WeatherAdapter
-    val arrayIconDay = arrayOf("01d", "02d", "03d", "04d", "09d", "10d", "11d", "13d", "50d")
-    val arrayIconNight = arrayOf("01n", "02n", "03n", "04n", "09n", "10n", "11n", "13n", "50n")
+    private lateinit var progress: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_weather)
+
+        progress = ProgressDialog(this)
+        progress.setMessage("Tunggu Sebentar...")
+        progress.show()
 
         rv_list_weather.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rv_list_weather.itemAnimator = DefaultItemAnimator()
@@ -39,17 +49,30 @@ class WeatherActivity : AppCompatActivity() {
         rv_list_weather3.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rv_list_weather3.itemAnimator = DefaultItemAnimator()
 
-        getResponse().execute()
+        getResponse().execute("id=1621177")
+
+        tv_title.setOnEditorActionListener { v, actionId, event ->
+                    var handled = false
+                    if (actionId == EditorInfo.IME_ACTION_GO) {
+                        progress.show()
+                        getResponse().execute("q="+tv_title.text.toString())
+                        e("cihuy", tv_title.text.toString())
+                        handled = true
+                    }
+                    handled
+                }
     }
 
     inner class getResponse : AsyncTask<String, String, String>() {
         override fun doInBackground(vararg params: String?): String {
-            return URL("https://api.openweathermap.org/data/2.5/forecast?id=1621177&appid=ba7f4e5b90befbb701a523379ad94d10&units=metric").readText()
+            return URL("https://api.openweathermap.org/data/2.5/forecast?${params[0]}&appid=ba7f4e5b90befbb701a523379ad94d10&units=metric").readText()
         }
 
         override fun onPostExecute(result: String?) {
             super.onPostExecute(result)
+            progress.dismiss()
             try {
+                listWeather.clear()
                 jsonResponse = JSONObject(result)
                 val name = jsonResponse.getJSONObject("city").getString("name")
                 val countryCode = jsonResponse.getJSONObject("city").getString("country")
@@ -115,6 +138,7 @@ class WeatherActivity : AppCompatActivity() {
     }
 
     private fun mappingList(){
+        listAllWeather.clear()
         var i = 0
         var tempDate = Date()
         var tempString = tempDate.toSimpleDateString()

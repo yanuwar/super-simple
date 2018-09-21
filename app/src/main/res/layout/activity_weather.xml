@@ -6,17 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".WeatherActivity">
 
-    <TextView
+    <LinearLayout
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_width="0px"
+        android:layout_height="0px"/>
+
+    <EditText
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="22sp"
+        android:textSize="24sp"
         android:textStyle="bold"
-        android:layout_marginTop="16dp"
-        android:text="Cuaca Yogyakarta"
+        android:text="Yogyakarta"
+        android:gravity="center"
+        android:maxLines="1"
+        android:inputType="text"
         android:textColor="@android:color/black"
+        android:imeOptions="actionGo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:layout_width="match_parent"
