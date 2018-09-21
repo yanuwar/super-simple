@@ -30,18 +30,19 @@
         <activity android:name=".Scrabble" />
         <activity android:name=".DetailScrabble" />
         <activity android:name=".StockCard" />
-        <activity android:name=".SnakeNLadder"></activity>
+        <activity android:name=".SnakeNLadder" />
         <activity android:name=".PreSnakeNLadder" />
         <activity android:name=".AddSnake" />
         <activity android:name=".BattleShip" />
         <activity android:name=".BattleShipActivity">
+        </activity>
+        <activity android:name=".KanbanBotActivity"></activity>
+        <activity android:name=".WeatherActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".KanbanBotActivity">
         </activity>
     </application>
 
