@@ -34,10 +34,11 @@
         <activity android:name=".PreSnakeNLadder" />
         <activity android:name=".AddSnake" />
         <activity android:name=".BattleShip" />
-        <activity android:name=".BattleShipActivity">
-        </activity>
-        <activity android:name=".KanbanBotActivity"></activity>
+        <activity android:name=".BattleShipActivity"></activity>
+        <activity android:name=".KanbanBotActivity" />
         <activity android:name=".WeatherActivity">
+        </activity>
+        <activity android:name=".Calender">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
