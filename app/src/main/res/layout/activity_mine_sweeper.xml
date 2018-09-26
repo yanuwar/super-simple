@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MineSweeperActivity">
+
+    <EditText
+        android:id="@+id/et_panjang"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:maxLines="1"
+        android:imeOptions="actionDone"
+        android:hint="panjang board"
+        app:layout_constraintTop_toTopOf="@+id/btn_create"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_create"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/et_banyak"/>
+
+    <EditText
+        android:id="@+id/et_banyak"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:maxLines="1"
+        android:imeOptions="actionDone"
+        android:hint="jml bom"
+        app:layout_constraintTop_toTopOf="@+id/btn_create"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_create"
+        app:layout_constraintEnd_toStartOf="@+id/btn_create"
+        app:layout_constraintStart_toEndOf="@+id/et_panjang"/>
+
+    <Button
+        android:id="@+id/btn_create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buat Game"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <HorizontalScrollView
+        android:id="@+id/hsv_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/btn_create">
+        <LinearLayout
+            android:id="@+id/line_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"/>
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/tv_keterangan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/hsv_parent"/>
+
+    <Button
+        android:id="@+id/btn_retry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Main Lagi"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/tv_keterangan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

@@ -36,10 +36,11 @@
         <activity android:name=".BattleShip" />
         <activity android:name=".BattleShipActivity" />
         <activity android:name=".KanbanBotActivity" />
-        <activity android:name=".WeatherActivity"></activity>
-        <activity android:name=".Calender">
-        </activity>
+        <activity android:name=".WeatherActivity" />
+        <activity android:name=".Calender"></activity>
         <activity android:name=".TebakAngka">
+        </activity>
+        <activity android:name=".MineSweeperActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
