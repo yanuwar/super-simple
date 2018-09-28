@@ -37,9 +37,8 @@
         <activity android:name=".BattleShipActivity" />
         <activity android:name=".KanbanBotActivity" />
         <activity android:name=".WeatherActivity" />
-        <activity android:name=".Calender"></activity>
-        <activity android:name=".TebakAngka">
-        </activity>
+        <activity android:name=".Calender" />
+        <activity android:name=".TebakAngka"></activity>
         <activity android:name=".MineSweeperActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,6 +46,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".TestoActivity"></activity>
     </application>
 
 </manifest>
